@@ -1,4 +1,705 @@
+
 <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>ARN DIGITALS | Digital Solutions & Web Development</title>
+  <meta name="description" content="ARN DIGITALS, founded by Abiram Naik Kethavathu, creates modern websites and digital solutions for businesses.">
+
+  <meta name="theme-color" content="#080b14">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    :root {
+      --bg: #080b14;
+      --surface: #101727;
+      --blue: #3985ff;
+      --light: #eaf1ff;
+      --muted: #9ba9bf;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--light);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, 90%);
+      margin: auto;
+    }
+
+    /* NAVIGATION */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(8,11,20,.94);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid #1c2940;
+    }
+
+    nav {
+      min-height: 76px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 23px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .logo span {
+      color: var(--blue);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+      font-size: 14px;
+      color: #c3cee0;
+    }
+
+    .nav-links a:hover {
+      color: var(--blue);
+    }
+
+    .menu-btn {
+      display: none;
+      background: none;
+      color: white;
+      border: 0;
+      font-size: 26px;
+      cursor: pointer;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 650px;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      background:
+        radial-gradient(ellipse at 50% 35%, #173568 0%, transparent 55%),
+        var(--bg);
+      padding: 100px 0;
+    }
+
+    .eyebrow {
+      color: #78aaff;
+      letter-spacing: 4px;
+      font-size: 12px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(38px, 7vw, 76px);
+      line-height: 1.13;
+      max-width: 950px;
+      margin: auto;
+    }
+
+    .hero h1 span {
+      color: var(--blue);
+    }
+
+    .hero p {
+      max-width: 650px;
+      margin: 25px auto;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 25px;
+      border-radius: 7px;
+      background: var(--blue);
+      color: white;
+      font-weight: bold;
+      margin: 8px;
+      transition: .3s;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      background: #206ce0;
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid #42699f;
+    }
+
+    /* COMMON SECTIONS */
+
+    section {
+      padding: 100px 0;
+    }
+
+    .section-label {
+      color: var(--blue);
+      font-size: 12px;
+      letter-spacing: 3px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .section-title {
+      font-size: clamp(30px, 5vw, 43px);
+      text-align: center;
+      margin: 12px 0 18px;
+    }
+
+    .section-description {
+      color: var(--muted);
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 45px;
+    }
+
+    /* ABOUT */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 55px;
+      align-items: center;
+    }
+
+    .about-visual {
+      min-height: 330px;
+      border-radius: 18px;
+      background:
+        radial-gradient(circle at 50% 50%, #2459a8, #101727 65%);
+      border: 1px solid #243c62;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .about-visual strong {
+      font-size: 110px;
+      color: white;
+      text-shadow: 0 0 35px #3985ff;
+    }
+
+    .about-text h3 {
+      font-size: 30px;
+      margin-bottom: 18px;
+    }
+
+    .about-text p {
+      color: var(--muted);
+      margin-bottom: 15px;
+    }
+
+    /* FOUNDER */
+
+    .founder {
+      background: #0d1321;
+    }
+
+    .founder-card {
+      max-width: 850px;
+      margin: auto;
+      padding: 35px;
+      background: var(--surface);
+      border: 1px solid #263958;
+      border-radius: 18px;
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 35px;
+      align-items: center;
+    }
+
+    .founder-image {
+      height: 240px;
+      border-radius: 14px;
+      background:
+        radial-gradient(circle at 50% 35%, #397bd0, #14233e 65%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 65px;
+      font-weight: bold;
+      color: white;
+    }
+
+    .founder-info .role {
+      color: var(--blue);
+      font-size: 12px;
+      letter-spacing: 2px;
+      font-weight: bold;
+    }
+
+    .founder-info h3 {
+      font-size: 28px;
+      margin: 8px 0;
+    }
+
+    .founder-info p {
+      color: var(--muted);
+      margin-top: 12px;
+    }
+
+    .quote {
+      border-left: 3px solid var(--blue);
+      padding-left: 17px;
+      margin-top: 22px;
+      font-style: italic;
+      color: #c7d9f7;
+    }
+
+    /* SERVICES */
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .service-card {
+      padding: 28px;
+      border: 1px solid #23334d;
+      background: var(--surface);
+      border-radius: 12px;
+      transition: .3s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--blue);
+    }
+
+    .service-icon {
+      font-size: 30px;
+      margin-bottom: 15px;
+    }
+
+    .service-card h3 {
+      margin-bottom: 10px;
+      font-size: 19px;
+    }
+
+    .service-card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* VISION */
+
+    .vision {
+      text-align: center;
+      background:
+        radial-gradient(ellipse at center, #142c51, transparent 75%);
+    }
+
+    .vision p {
+      max-width: 750px;
+      margin: 20px auto;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    /* CONTACT */
+
+    .contact {
+      text-align: center;
+      background: #0d1321;
+    }
+
+    .contact p {
+      color: var(--muted);
+      margin: 15px auto 25px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      padding: 30px 0;
+      text-align: center;
+      border-top: 1px solid #26334b;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    footer strong {
+      color: white;
+    }
+
+    /* ANIMATIONS */
+
+    .reveal {
+      animation: appear .9s ease both;
+    }
+
+    @keyframes appear {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* MOBILE */
+
+    @media(max-width: 750px) {
+      .menu-btn {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 76px;
+        left: 0;
+        width: 100%;
+        background: #101727;
+        padding: 25px;
+        flex-direction: column;
+        gap: 18px;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .hero {
+        min-height: 570px;
+      }
+
+      .about-grid,
+      .founder-card {
+        grid-template-columns: 1fr;
+      }
+
+      .founder-image {
+        max-width: 280px;
+        width: 100%;
+        margin: auto;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 75px 0;
+      }
+
+      .founder-card {
+        padding: 23px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+
+  <header>
+    <nav class="container">
+      <a href="#home" class="logo">ARN <span>DIGITALS.</span></a>
+
+      <button class="menu-btn" id="menuBtn"
+        aria-label="Toggle navigation" aria-expanded="false">
+        ☰
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#founder">Founder</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#vision">Our Vision</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container reveal">
+        <div class="eyebrow">WELCOME TO ARN DIGITALS</div>
+
+        <h1>
+          We Build Digital.<br>
+          <span>We Create Possibilities.</span>
+        </h1>
+
+        <p>
+          Turning ideas into powerful digital experiences
+          through web development, creative design and
+          innovative technology solutions.
+        </p>
+
+        <a href="#about" class="btn">Discover Our Story</a>
+        <a href="#contact" class="btn btn-outline">Get In Touch</a>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+
+    <section id="about">
+      <div class="container">
+        <div class="section-label">WHO WE ARE</div>
+        <h2 class="section-title">About ARN DIGITALS</h2>
+
+        <div class="about-grid">
+          <div class="about-visual">
+            <strong>ARN</strong>
+          </div>
+
+          <div class="about-text">
+            <h3>Ideas Into Digital Reality.</h3>
+
+            <p>
+              ARN DIGITALS is a digital solutions brand
+              focused on helping businesses establish and
+              strengthen their online presence.
+            </p>
+
+            <p>
+              We believe every business deserves a
+              professional digital identity. Through modern
+              website development, creative design and
+              technology-driven solutions, we transform
+              ideas into meaningful digital experiences.
+            </p>
+
+            <p>
+              Our mission is to make technology accessible,
+              practical and valuable for businesses.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOUNDER -->
+
+    <section class="founder" id="founder">
+      <div class="container">
+        <div class="section-label">THE PERSON BEHIND THE VISION</div>
+        <h2 class="section-title">Meet Our Founder</h2>
+
+        <p class="section-description">
+          Every brand begins with a vision. Meet the person
+          who started ARN DIGITALS.
+        </p>
+
+        <div class="founder-card">
+          <div class="founder-image" aria-label="Founder photo placeholder">
+            AN
+          </div>
+
+          <div class="founder-info">
+            <div class="role">FOUNDER & CREATIVE LEAD</div>
+
+            <h3>Abiram Naik Kethavathu</h3>
+
+            <p>
+              ARN DIGITALS was founded by Abiram Naik
+              Kethavathu with a vision to bring businesses
+              closer to the digital world.
+            </p>
+
+            <p>
+              Driven by an interest in technology,
+              web development and entrepreneurship,
+              Abiram established ARN DIGITALS to create
+              meaningful digital solutions and help
+              businesses build a strong online identity.
+            </p>
+
+            <div class="quote">
+              "Every great digital experience begins
+              with an idea. Our mission is to turn that
+              idea into reality."
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+
+    <section id="services">
+      <div class="container">
+        <div class="section-label">WHAT WE DO</div>
+        <h2 class="section-title">Our Services</h2>
+
+        <p class="section-description">
+          Digital solutions designed to help businesses
+          establish and improve their online presence.
+        </p>
+
+        <div class="services-grid">
+
+          <div class="service-card">
+            <div class="service-icon">💻</div>
+            <h3>Website Development</h3>
+            <p>
+              Modern, responsive websites designed
+              to represent your business online.
+            </p>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon">🎨</div>
+            <h3>Website Design</h3>
+            <p>
+              Clean and engaging website experiences
+              with thoughtful visual design.
+            </p>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon">⚙️</div>
+            <h3>Digital Solutions</h3>
+            <p>
+              Practical technology solutions
+              tailored to business requirements.
+            </p>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon">🔧</div>
+            <h3>Website Maintenance</h3>
+            <p>
+              Website updates, improvements
+              and ongoing maintenance.
+            </p>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon">📱</div>
+            <h3>Custom Web Applications</h3>
+            <p>
+              Interactive web experiences
+              built around specific needs.
+            </p>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon">🚀</div>
+            <h3>Creative Technology</h3>
+            <p>
+              Exploring creative ways to turn
+              ideas into digital experiences.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- VISION -->
+
+    <section class="vision" id="vision">
+      <div class="container">
+        <div class="section-label">LOOKING AHEAD</div>
+        <h2 class="section-title">Our Vision</h2>
+
+        <p>
+          To build a trusted digital solutions brand
+          that empowers businesses through technology,
+          creativity and innovation.
+        </p>
+
+        <h3>Think Digital. Build Better.</h3>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="section-label">LET'S CONNECT</div>
+
+        <h2 class="section-title">
+          Have an Idea? Let's Build It.
+        </h2>
+
+        <p>
+          Have a project or business idea?
+          Let's explore what we can create together.
+        </p>
+
+        <a href="mailto:YOUR_EMAIL@example.com"
+           class="btn">Contact ARN DIGITALS</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+
+  <footer>
+    <div class="container">
+      <strong>ARN DIGITALS</strong>
+
+      <p>Founded by Abiram Naik Kethavathu.</p>
+
+      <p>
+        © <span id="year"></span> ARN DIGITALS.
+        All Rights Reserved.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+
+    menuBtn.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("active");
+      menuBtn.setAttribute("aria-expanded", isOpen);
+      menuBtn.textContent = isOpen ? "✕" : "☰";
+    });
+
+    document.querySelectorAll(".nav-links a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("active");
+        menuBtn.setAttribute("aria-expanded", "false");
+        menuBtn.textContent = "☰";
+      });
+    });
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+
+</body>
+</html>
+
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>ARN Digital</title>

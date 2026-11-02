@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ARN Digital</title>
+<style>
+:root{--bg:#f3f5fb;--pn:#fff;--p2:#eef1f9;--tx:#0a1330;--mu:#5d6887;--bd:#dde3f1;--ac:#2563ff;--a2:#6d5dfc;--ok:#12a150;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#060b1c;--pn:#0d1631;--p2:#131f40;--tx:#e9eefc;--mu:#8e9bbf;--bd:#1d2b55;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#060b1c;--pn:#0d1631;--p2:#131f40;--tx:#e9eefc;--mu:#8e9bbf;--bd:#1d2b55;color-scheme:dark}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.55 Inter,system-ui,-apple-system,"Segoe UI",sans-serif;min-height:100vh}
+.top{display:flex;justify-content:space-between;align-items:center;padding:14px 22px;border-bottom:1px solid var(--bd);background:var(--pn);gap:10px;flex-wrap:wrap}
+.lg{display:flex;gap:10px;align-items:center;font-weight:800;font-size:18px}.lg i{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,var(--ac),var(--a2));display:grid;place-items:center;color:#fff;font-style:normal}
+.wrap{max-width:1000px;margin:0 auto;padding:24px 18px}
+.card{background:var(--pn);border:1px solid var(--bd);border-radius:14px;padding:18px;margin-bottom:14px;box-shadow:0 8px 24px #0a13300f}
+input,textarea{width:100%;background:var(--p2);color:var(--tx);border:1px solid var(--bd);border-radius:10px;padding:10px 12px;font:inherit;outline:none}input:focus,textarea:focus{border-color:var(--ac)}
+.row{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin-bottom:10px}
+.btn{border:0;border-radius:10px;padding:10px 16px;font:inherit;font-weight:600;cursor:pointer;color:#fff;background:linear-gradient(135deg,var(--ac),var(--a2));text-decoration:none;display:inline-block}
+.btn.g{background:var(--p2);color:var(--tx);border:1px solid var(--bd)}.btn:disabled{opacity:.5}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-bottom:14px}.stats .card{margin:0}.n{font-size:30px;font-weight:750}.lb{color:var(--mu);font-size:13px}
+.si{display:flex;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid var(--bd)}.si img,.ph{width:84px;height:54px;object-fit:cover;border-radius:8px;flex:none;background:linear-gradient(135deg,var(--ac),var(--a2))}.si div{flex:1;min-width:0}
+.badge{background:#e5484d;color:#fff;border-radius:99px;padding:1px 8px;font-size:12px;font-weight:700}
+.gate{min-height:100vh;display:grid;place-items:center;padding:20px;background:radial-gradient(circle at 20% 10%,#1d3fd655,transparent 50%),var(--bg)}.gate .card{width:min(400px,100%);text-align:center}
+.show{position:fixed;inset:0;background:#050a1a;color:#fff;overflow:hidden;z-index:5}
+.sl{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:7vh 6vw calc(9vh + env(safe-area-inset-bottom,0px));opacity:0;transition:opacity .8s;background-size:cover;background-position:center}
+.sl.on{opacity:1}.sl::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#050a1a33,#050a1aee 75%)}.sl>*{position:relative;max-width:720px}
+.sl h2{font-size:clamp(28px,5vw,52px);margin:0 0 8px;letter-spacing:-1px}.sl p{opacity:.85;margin:0 0 18px;font-size:clamp(15px,2vw,19px)}
+.ctl{position:absolute;bottom:calc(2.5vh + env(safe-area-inset-bottom,0px));left:0;right:0;display:flex;justify-content:center;gap:10px;align-items:center;z-index:6}
+.dt{width:9px;height:9px;border-radius:50%;background:#ffffff55;border:0;padding:0;cursor:pointer}.dt.on{background:#fff;width:24px;border-radius:9px}
+.nb{background:#ffffff22;color:#fff;border:0;border-radius:50%;width:40px;height:40px;font-size:18px;cursor:pointer}
+.hd{position:absolute;top:calc(2vh + env(safe-area-inset-top,0px));left:5vw;right:5vw;display:flex;justify-content:space-between;z-index:6;align-items:center}
+.toast{position:fixed;top:16px;right:16px;background:#0a1330;color:#fff;padding:12px 18px;border-radius:12px;z-index:50;border:1px solid #2563ff}
+.ab{position:fixed;inset:0;background:#050a1ae6;z-index:40;display:grid;place-items:center;padding:20px}.ab .card{max-width:520px;width:100%;margin:0}.ab h2{margin:0 0 8px}.ab ul{padding-left:18px}
+</style></head><body><div id="app"></div>
+<body><div id="app"></div>
+<script>
+// ===== EDIT YOUR ABOUT TEXT HERE =====
+const ABOUT={
+ title:"About ARN Digital",
+ text:"ARN Digital designs and builds modern, mobile-friendly websites for businesses. Below are some of the websites we have created.",
+ services:["Business websites","Clinic and restaurant websites","Mobile-friendly design","WhatsApp and Google Maps integration"],
+ phone:"917075392824",   // country code 91 + number, no + or spaces
+ email:""       // example: "hello@yourdomain.com"
+};
+// ===== EDIT THIS LIST to add or remove websites =====
+const SITES=[
+ {title:"QUIKO",url:"https://quiko.pages.dev/",desc:"",img:""},
+ {title:"AAVNI DENTAL CLINIC",url:"https://abiram2427.github.io/AAVNI-DENTAL-CLINIC/",desc:"",img:""},
+ {title:"YUM YUM TREE",url:"https://yumyumtree.pages.dev/",desc:"",img:""}
+];
+// Owner password check (salted SHA-256). Change it from the Admin page.
+const AUTH={salt:"b8b67529-f5e2-4f89-b51b-cb9ac65b6a02",hash:"05aa891c2dd20a831aee21d094904dba9ebff1caa2939b2e03d71f1303152180"};
+const $=i=>document.getElementById(i),e=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+let idx=0,timer=null,paused=false,work=SITES.map(x=>({...x})),a2={...AUTH};
+async function hash(s,salt){const b=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(salt+s));return[...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,"0")).join("")}
+function toast(t){const d=document.createElement("div");d.className="toast";d.textContent=t;document.body.appendChild(d);setTimeout(()=>d.remove(),3500)}
+function landing(){clearInterval(timer);$("app").innerHTML=`<div class="gate"><div class="card" style="width:min(460px,100%)"><div class="lg" style="justify-content:center;margin-bottom:6px"><i>A</i>ARN Digital</div><p class="lb">Choose how you want to continue.</p><p><button class="btn" style="width:100%;padding:14px" onclick="show()">Continue as Guest</button></p><p><button class="btn g" style="width:100%;padding:14px" onclick="login()">Admin</button></p></div></div>`}
+function show(){const s=SITES;$("app").innerHTML=`<div class="show"><div class="hd"><div class="lg"><i>A</i>ARN Digital</div><div><a class="btn" style="text-decoration:none" target="_blank" rel="noopener" href="${wa()}">Contact us</a> <button class="btn g" style="color:#fff" onclick="about()">About</button> <button class="btn g" style="color:#fff;opacity:.7" onclick="landing()">Home</button></div></div>${s.map((x,i)=>`<div class="sl ${i===idx?"on":""}" style="background-image:linear-gradient(135deg,#0b1a4a,#1d3fd6 55%,#6d5dfc)"><div><h2>${e(x.title)}</h2><p>${e(x.desc)}</p><a class="btn" href="${e(x.url)}" target="_blank" rel="noopener noreferrer">Visit website ↗</a></div></div>`).join("")}<div class="ctl"><button class="nb" onclick="go(-1)">‹</button>${s.map((_,i)=>`<button class="dt ${i===idx?"on":""}" onclick="idx=${i};upd()"></button>`).join("")}<button class="nb" onclick="go(1)">›</button><button class="nb" onclick="paused=!paused;this.textContent=paused?'▶':'❚❚'">❚❚</button></div></div>`;
+ clearInterval(timer);timer=setInterval(()=>{if(!paused&&s.length>1)go(1)},6000)}
+function wa(){return`https://wa.me/${ABOUT.phone.replace(/\D/g,"")}?text=${encodeURIComponent("Hello ARN Digital, I saw your website showcase and would like to know more.")}`}
+function about(){const d=document.createElement("div");d.className="ab";d.onclick=ev=>{if(ev.target===d)d.remove()};
+ d.innerHTML=`<div class="card"><div class="lg" style="margin-bottom:10px"><i>A</i>ARN Digital</div><h2>${e(ABOUT.title)}</h2><p>${e(ABOUT.text)}</p>${ABOUT.services.length?`<b>What we do</b><ul>${ABOUT.services.map(x=>`<li>${e(x)}</li>`).join("")}</ul>`:""}<p>${ABOUT.phone?`<a class="btn" style="text-decoration:none" target="_blank" rel="noopener" href="${e(wa())}">Contact us on WhatsApp</a> `:""}${ABOUT.email?`<a class="btn g" style="text-decoration:none" href="mailto:${e(ABOUT.email)}">Email</a> `:""}<button class="btn g" onclick="this.closest('.ab').remove()">Close</button></p></div>`;document.body.appendChild(d)}
+function go(d){const n=SITES.length;idx=(idx+d+n)%n;upd()}
+function upd(){document.querySelectorAll(".sl").forEach((el,i)=>el.classList.toggle("on",i===idx));document.querySelectorAll(".dt").forEach((el,i)=>el.classList.toggle("on",i===idx))}
+function login(){$("app").innerHTML=`<div class="gate"><div class="card"><div class="lg" style="justify-content:center;margin-bottom:12px"><i>A</i>ARN Digital</div><p class="lb">Admin password</p><input id="pw" type="password" placeholder="Password" onkeydown="if(event.key==='Enter')enter()"><p><button class="btn" onclick="enter()">Log in</button> <button class="btn g" onclick="landing()">Back</button></p><p class="lb" id="er"></p></div></div>`}
+async function enter(){if(await hash($("pw").value,a2.salt)!==a2.hash){$("er").textContent="Incorrect password.";return}admin()}
+function admin(){$("app").innerHTML=`<div class="top"><div class="lg"><i>A</i>ARN Digital <span class="lb" style="font-weight:400">Admin</span></div><button class="btn g" onclick="landing()">Log out</button></div><div class="wrap"><div class="card"><b>How saving works on GitHub</b><p class="lb">This page is static, so changes are not saved automatically. Edit the list below, press “Copy code”, then paste it over the SITES list in index.html on GitHub and commit. Visitor counts and alerts are not available on GitHub Pages.</p></div>
+ <div class="card"><b>Add a website</b><div class="row"><input id="st" placeholder="Website name"><input id="su" placeholder="https://example.com"></div><textarea id="sd" placeholder="Short description" style="min-height:60px;margin-bottom:10px"></textarea><button class="btn" onclick="add()">Add</button></div>
+ <div class="card"><b>Websites</b>${work.map((x,i)=>`<div class="si"><div><b>${e(x.title)}</b><div class="lb">${e(x.url)}</div></div><button class="btn g" onclick="work.splice(${i},1);admin()">Remove</button></div>`).join("")||"<p class='lb'>None.</p>"}<p><button class="btn" onclick="copy()">Copy code</button></p></div>
+ <div class="card"><b>New password</b><div class="row"><input id="np" type="password" placeholder="New password (min 6)"><button class="btn" onclick="newpw()">Generate</button></div><p class="lb">It gives you a new AUTH line to paste into index.html.</p></div></div>`}
+function add(){const t=$("st").value.trim();let u=$("su").value.trim();if(!t||!u){toast("Name and link are required");return}if(!/^https?:\/\//i.test(u))u="https://"+u;work.push({title:t,url:u,desc:$("sd").value.trim(),img:""});admin()}
+function copy(){const c="const SITES="+JSON.stringify(work,null,1)+";";navigator.clipboard.writeText(c).then(()=>toast("Copied")).catch(()=>prompt("Copy this:",c))}
+async function newpw(){const p=$("np").value;if(p.length<6){toast("Use at least 6 characters");return}const s=crypto.randomUUID(),h=await hash(p,s),c=`const AUTH={salt:"${s}",hash:"${h}"};`;navigator.clipboard.writeText(c).then(()=>toast("AUTH line copied")).catch(()=>prompt("Copy this:",c))}
+landing();
+</script></body></html>
